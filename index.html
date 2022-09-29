@@ -1,0 +1,42 @@
+<html>
+
+<head></head>
+<body>
+    <div class="statement-at-front">
+        <div id="scene"></div>
+    </div>
+
+    <script src="core-lib/js/viewported-knot-at-protected-knot.js"></script>
+    <script src="core-lib/js/viewported-knot-at-protected-knot/handle.js"></script>
+    <script src="core-lib/js/viewported-knot-at-protected-knot/draft-compact.js"></script>
+    <script src="core-lib/js/viewported-knot-at-protected-knot/draft.js"></script>
+    <!-- keep -->
+    <script src="core-lib/js/viewported-knot-at-protected-knot/draft-scene-focus.js"></script>
+
+    <script src="core-lib/js/viewported-knot-at-pub.js"></script>
+    <script>
+        // keep
+        let pencil = new Pencil()
+        let sceneWalkingAroundLabirintAtStart = new SceneWalkingAroundLabirintAtStart()
+
+        // keep
+        let draftFabrikk = new DraftFabrikk()
+        let viewportPointerBelongings = draftFabrikk.constructViewport()
+
+        pencil.useViewportPosition(viewportPointerBelongings.atVerticalPosition, viewportPointerBelongings.atDistance, viewportPointerBelongings.atHorizontalPosition)
+        pencil.useScene(sceneWalkingAroundLabirintAtStart)
+
+        // keep
+        let bottomStatement = draftFabrikk.constructBottomStatement()
+
+        let knot1 = pencil.constructKnot()
+        draftFabrikk.connectKnotToBottomStatement(knot1, bottomStatement)
+        pencil.provideScene().putKnotConnectedToBottomStatement(knot1)
+
+        pencil.drawViewport()
+    </script>
+
+
+</body>
+
+</html>
